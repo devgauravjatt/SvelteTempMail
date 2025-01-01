@@ -6,7 +6,7 @@
 	const { mails }: { mails: HydraMember[] } = $props();
 </script>
 
-<div class="mx-auto mt-6 max-w-3xl">
+<div class="mx-auto mt-6 max-w-4xl">
 	<h2 class="flex items-center gap-3 pb-3 text-xl font-semibold text-primary-500">
 		<Archive />Mail Inbox
 	</h2>
@@ -31,9 +31,9 @@
 								<p class="flex items-center gap-2"><Mail />{mail.from.address}</p>
 							</div>
 						</div>
-						<div>
+						<div class="max-w-80">
 							<p>{mail.subject}</p>
-							<p>{mail.intro}</p>
+							<p class="line-clamp-1">{mail.intro}</p>
 						</div>
 						<div class="pt-2">
 							<ChevronRight class="text-primary-400" />

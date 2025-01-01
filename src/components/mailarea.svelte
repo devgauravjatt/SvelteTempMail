@@ -12,6 +12,11 @@
 	}
 
 	const { mail }: { mail: string } = $props();
+
+	function ChangeMail() {
+		const domain = window.location.origin;
+		window.location.href = domain + '/?reload=true';
+	}
 </script>
 
 <div
@@ -32,7 +37,7 @@
 		</button>
 	</div>
 	<div>
-		<button class="flex gap-1 rounded-md bg-gray-200 px-3 py-2">
+		<button onclick={ChangeMail} class="flex gap-1 rounded-md bg-gray-200 px-3 py-2">
 			<RefreshCcw />
 			<p>Change Mail</p>
 		</button>

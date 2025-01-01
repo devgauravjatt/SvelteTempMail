@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // See https://svelte.dev/docs/kit/types#app.d.ts
 // for information about these interfaces
 declare global {
@@ -18,6 +19,7 @@ export interface ApiResponse {
 	TokenCreate: TokenCreate;
 	MailList: MailList;
 	MeInfo: MeInfo;
+	OneMail: OneMail;
 }
 
 interface DomainsList {
@@ -126,4 +128,50 @@ interface MeInfo {
 	isDeleted: boolean;
 	createdAt: Date;
 	updatedAt: Date;
+}
+
+export interface OneMail {
+	'@context': string;
+	'@id': string;
+	'@type': string;
+	id: string;
+	msgid: string;
+	from: From;
+	to: From[];
+	cc: any[];
+	bcc: any[];
+	subject: string;
+	intro: string;
+	seen: boolean;
+	flagged: boolean;
+	isDeleted: boolean;
+	verifications: Verifications;
+	retention: boolean;
+	retentionDate: Date;
+	text: string;
+	html: string[];
+	hasAttachments: boolean;
+	size: number;
+	downloadUrl: string;
+	sourceUrl: string;
+	createdAt: Date;
+	updatedAt: Date;
+	accountId: string;
+}
+
+export interface From {
+	address: string;
+	name: string;
+}
+
+export interface Verifications {
+	tls: TLS;
+	spf: boolean;
+	dkim: boolean;
+}
+
+export interface TLS {
+	name: string;
+	standardName: string;
+	version: string;
 }

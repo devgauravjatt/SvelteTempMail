@@ -25,12 +25,22 @@ export const CreateAccount = async () => {
 };
 
 export const GetAllMails = async (token: string) => {
+	console.log('🚀 ~ GetAllMails Calling.........');
 	const { data }: { data: ApiResponse['MailList'] } = await axios.get(
 		'https://api.mail.tm/messages',
 		{ headers: { Authorization: 'Bearer ' + token } }
 	);
 	const mails = data['hydra:member'];
 	return mails.slice(0, 10);
+};
+
+export const GetOneMail = async (token: string, id: string) => {
+	console.log('🚀 ~ GetOneMail Calling.........');
+	const { data }: { data: ApiResponse['OneMail'] } = await axios.get(
+		'https://api.mail.tm/messages/' + id,
+		{ headers: { Authorization: 'Bearer ' + token } }
+	);
+	return data;
 };
 
 export const GetMeInfo = async (token: string) => {
